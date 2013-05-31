@@ -8,3 +8,4 @@ Todo:
 * Make arbitrary game sizes.
 * Convert CSS to LESS.
 * Clean up HTML and make valid.
+* Improve UI discoverability, clickability on the bottom and non clickability on the top.
