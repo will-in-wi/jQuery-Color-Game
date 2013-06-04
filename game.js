@@ -85,6 +85,8 @@
         }
         this.append(makeControls());
 
+
+
         var whichcolor = function(cell) {
             var cell = $('#' + cell);
             for (var i = 0; i < options.noOfColors; i++) {
@@ -150,23 +152,10 @@
 
         var currentStep = 0;
 
-        $("#pick-0").click(function(){
-            switch_colors("color-0");
-        });
-        $("#pick-1").click(function(){
-            switch_colors("color-1");
-        });
-        $("#pick-2").click(function(){
-            switch_colors("color-2");
-        });
-        $("#pick-3").click(function(){
-            switch_colors("color-3");
-        });
-        $("#pick-4").click(function(){
-            switch_colors("color-4");
-        });
-        $("#pick-5").click(function(){
-            switch_colors("color-5");
-        });
+        for (var i = 0; i < options.noOfColors; i++) {
+            $('#pick-' + i).click(function(){
+                switch_colors('color-' + i);
+            });
+        };
     };
 }(jQuery));
