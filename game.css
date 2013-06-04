@@ -1,6 +1,9 @@
+#game {
+  width: 300px;
+}
 #game #grid {
   height: 300px;
-  width: 300px;
+  width: 100%;
 }
 #game table {
   height: 100%;
@@ -15,11 +18,11 @@
 }
 #game #color-select {
   height: 30px;
-  width: 300px;
+  width: 100%;
   margin-top: 10px;
 }
 #game #counter {
-  width: 300px;
+  width: 100%;
   text-align: right;
 }
 #game .color-0 {
