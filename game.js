@@ -100,10 +100,10 @@
             var checking;
             while (arrToCheck.length > 0) {
                 checking = arrToCheck.shift();
-                if ($("#cell-" + checking).attr('data-color') == oldcolor) {
+                if ($('#cell-' + checking).attr('data-color') == oldcolor) {
 
                     // switch colors
-                    $("#cell-" + checking).attr('data-color', newcolor);
+                    $('#cell-' + checking).attr('data-color', newcolor);
 
                     // Add top, bottom, right, left to arrToCheck
                     var cellTop;
@@ -140,7 +140,7 @@
                 arrChecked.push(checking);
             }
             currentStep++;
-            $(".counter").html(currentStep + ' of ' + totalMoves + ' moves');
+            $('.counter').html(currentStep + ' of ' + totalMoves + ' moves');
         }
 
         $('.color-select td').click(function(){
