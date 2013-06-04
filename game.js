@@ -154,11 +154,7 @@
 
         var currentStep = 0;
 
-        $("#easy").click(function(){
-            $("#grid").html(makegrid());
-            $("#start").hide();
-            $("#game").show();
-        });
+        $("#grid").html(makegrid());
 
         $("#pick-0").click(function(){
             switch_colors("color-0");

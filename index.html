@@ -1,23 +1,26 @@
 <!doctype html>
 <html>
-	<head>
-		<title>My Game!</title>
-		<link rel="stylesheet" type="text/css" href="game.css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-		<script src="game.js"></script>
-		<script>
-		$(function(){
-			$('#game').colorGame();
-		});
-		</script>
-	</head>
-	<body>
-		<div id="page">
-			<p>Welcome to my game!</p>
+    <head>
+        <title>My Game!</title>
+        <link rel="stylesheet" type="text/css" href="game.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+        <script src="game.js"></script>
+        <script>
+        $(function(){
+            $("#easy").click(function(){
+                $('#start').hide();
+                $('#game').colorGame();
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div id="page">
+            <p>Welcome to my game!</p>
 
-			<div id="start"><div id="easy">Easy<div class="sub">12x12 - 22 moves</div></div></div>
+            <div id="start"><div id="easy">Easy<div class="sub">12x12 - 22 moves</div></div></div>
 
-			<div id="game"></div>
-		</div>
-	</body>
+            <div id="game"></div>
+        </div>
+    </body>
 </html>

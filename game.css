@@ -3,9 +3,6 @@
   margin-right: auto;
   width: 400px;
 }
-#game {
-  display: none;
-}
 #grid {
   height: 300px;
   width: 300px;
