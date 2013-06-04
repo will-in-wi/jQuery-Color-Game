@@ -55,7 +55,7 @@
                     var color = Math.floor(Math.random()*(options.noOfColors));
                     var td = $('<td />')
                         .attr('id', 'cell-' + cell)
-                        .addClass('color-' + color);
+                        .attr('data-color', color);
                     tr.append(td);
                     cell++;
                 }
@@ -74,8 +74,7 @@
 
             for (var i = 0; i < options.noOfColors; i++) {
                 var td = $('<td />')
-                    .attr('data-color', i)
-                    .addClass('color-' + i);
+                    .attr('data-color', i);
                 tr.append(td);
             };
 
@@ -87,32 +86,21 @@
 
 
 
-        var whichcolor = function(cell) {
-            var cell = $('#' + cell);
-            for (var i = 0; i < options.noOfColors; i++) {
-                if (cell.hasClass('color-' + i) === true) {
-                    return 'color-' + i;
-                }
-            };
-
-            throw 'Cell does not have color class specified.';
-        }
-
         var currentStep = 0;
 
         var switch_colors = function(newcolor) {
             var arrChecked = [];
             var arrToCheck = [0];
 
-            var oldcolor = whichcolor("cell-0");
+            var oldcolor = $('#cell-0').attr('data-color');
 
             var checking;
             while (arrToCheck.length > 0) {
                 checking = arrToCheck.shift();
-                if ($("#cell-" + checking).hasClass(oldcolor)) {
+                if ($("#cell-" + checking).attr('data-color') == oldcolor) {
+
                     // switch colors
-                    $("#cell-" + checking).removeClass(oldcolor);
-                    $("#cell-" + checking).addClass(newcolor);
+                    $("#cell-" + checking).attr('data-color', newcolor);
 
                     // Add top, bottom, right, left to arrToCheck
                     var cellTop;
@@ -153,7 +141,7 @@
         }
 
         $('.color-select td').click(function(){
-            switch_colors('color-' + $(this).attr('data-color'));
+            switch_colors($(this).attr('data-color'));
         });
     };
 }(jQuery));
