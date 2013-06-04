@@ -27,6 +27,7 @@
     $.fn.colorGame = function(options) {
         var defaults = {
             noOfColors : 6,
+            size       : 12
         }
         options = $.extend({}, defaults, options);
 
@@ -42,22 +43,28 @@
         }
 
         var makegrid = function(size, colors) {
-            var grid = "<table>";
+            var grid = $('<table/>');
 
             var cell = 0;
 
             var i = 1;
             for (i=1;i<=size;i++) {
-                grid = grid + "<tr>";
+                // grid = grid + "<tr>";
+                var tr = $('<tr />');
 
                 var j = 1;
                 for (j=1;j<=size;j++) {
-                    grid = grid + '<td id="cell-' + cell + '" class="color-' + Math.floor(Math.random()*(colors)) + '">';
+                    // grid = grid + '<td id="cell-' + cell + '" class="color-' + Math.floor(Math.random()*(colors)) + '">';
+                    var color = Math.floor(Math.random()*(options.noOfColors));
+                    var td = $('<td />')
+                        .attr('id', 'cell-' + cell)
+                        .addClass('color-' + color);
+                    tr.append(td);
                     cell++;
                 }
-                grid = grid + "</tr>";
+                // grid = grid + "</tr>";
+                grid.append(tr);
             }
-            grid = grid + "</table>";
             return grid;
         }
 
@@ -116,7 +123,7 @@
         var currentStep = 0;
 
         $("#easy").click(function(){
-            $("#grid").html(makegrid(12, 6));
+            $("#grid").html(makegrid(options.size, options.noOfColors));
             $("#start").hide();
             $("#game").show();
         });
