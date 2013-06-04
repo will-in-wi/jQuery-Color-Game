@@ -1,12 +1,8 @@
-.active-color-game {
-  width: 300px;
-}
 .active-color-game .counter {
   width: 100%;
   text-align: right;
 }
 .active-color-game .grid {
-  height: 300px;
   width: 100%;
 }
 .active-color-game table {

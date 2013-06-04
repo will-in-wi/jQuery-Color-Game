@@ -19,6 +19,8 @@
 
     $.fn.colorGame = function(options) {
 
+        var game = this;
+
         // Set up options.
         var defaults = {
             noOfColors : 6,
@@ -31,7 +33,7 @@
         var totalMoves = 22; // TODO: Actually compute this from size and number of colors.
 
 
-        this.addClass('active-color-game');
+        game.addClass('active-color-game');
 
 
         // Initialize gameboard.
@@ -39,7 +41,7 @@
         var counter = $('<div />')
             .addClass('counter')
             .html('0 of ' + totalMoves + ' moves');
-        this.append(counter);
+        game.append(counter);
 
         var grid = $('<div />')
             .addClass('grid');
@@ -67,7 +69,12 @@
             return grid;
         }
         grid.html(makegrid());
-        this.append(grid);
+
+        $(window).resize(function() {
+            grid.height(game.width());
+        });
+        $(window).resize();
+        game.append(grid);
 
         var makeControls = function() {
             var colorSelect = $('<table />')
@@ -85,7 +92,7 @@
 
             return colorSelect;
         }
-        this.append(makeControls());
+        game.append(makeControls());
 
 
 
@@ -144,7 +151,7 @@
         }
 
         $('.color-select td').click(function(){
-            switch_colors($(this).attr('data-color'));
+            switch_colors($(game).attr('data-color'));
         });
     };
 }(jQuery));
