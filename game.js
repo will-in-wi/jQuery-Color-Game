@@ -39,7 +39,7 @@
         this.append(counter);
 
         var grid = $('<div />')
-            .attr('id', 'grid');
+            .addClass('grid');
 
         var makegrid = function() {
             var grid = $('<table/>');

@@ -5,7 +5,7 @@
   width: 100%;
   text-align: right;
 }
-#game #grid {
+#game .grid {
   height: 300px;
   width: 100%;
 }
