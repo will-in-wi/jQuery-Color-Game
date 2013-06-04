@@ -39,31 +39,10 @@
         var counter = $('<div />')
             .attr('id', 'counter')
             .html('0 of 22 moves'); // TODO: Compute this from size.
+        this.append(counter);
 
         var grid = $('<div />')
             .attr('id', 'grid');
-
-        var makeControls = function() {
-            var colorSelect = $('<table />')
-                .attr('id', 'color-select');
-
-            var tr = $('<tr />');
-
-            for (var i = 0; i < options.noOfColors; i++) {
-                var td = $('<td />')
-                    .attr('id', 'pick-' + i)
-                    .addClass('color-' + i);
-                tr.append(td);
-            };
-
-            colorSelect.append(tr);
-
-            return colorSelect;
-        }
-
-        this.append(counter);
-        this.append(grid);
-        this.append(makeControls());
 
         var makegrid = function() {
             var grid = $('<table/>');
@@ -87,6 +66,27 @@
             }
             return grid;
         }
+        grid.html(makegrid());
+        this.append(grid);
+
+        var makeControls = function() {
+            var colorSelect = $('<table />')
+                .attr('id', 'color-select');
+
+            var tr = $('<tr />');
+
+            for (var i = 0; i < options.noOfColors; i++) {
+                var td = $('<td />')
+                    .attr('id', 'pick-' + i)
+                    .addClass('color-' + i);
+                tr.append(td);
+            };
+
+            colorSelect.append(tr);
+
+            return colorSelect;
+        }
+        this.append(makeControls());
 
         var whichcolor = function(cell) {
             var cell = $('#' + cell);
@@ -152,8 +152,6 @@
         }
 
         var currentStep = 0;
-
-        $("#grid").html(makegrid());
 
         $("#pick-0").click(function(){
             switch_colors("color-0");
