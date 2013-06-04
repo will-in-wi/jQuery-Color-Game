@@ -75,6 +75,7 @@
             for (var i = 0; i < options.noOfColors; i++) {
                 var td = $('<td />')
                     .attr('id', 'pick-' + i)
+                    .attr('data-color', i)
                     .addClass('color-' + i);
                 tr.append(td);
             };
@@ -154,7 +155,7 @@
 
         for (var i = 0; i < options.noOfColors; i++) {
             $('#pick-' + i).click(function(){
-                switch_colors('color-' + i);
+                switch_colors('color-' + $(this).attr('data-color'));
             });
         };
     };
