@@ -65,18 +65,6 @@
         this.append(grid);
         this.append(makeControls());
 
-
-        var whichcolor = function(cell) {
-            var cell = $('#' + cell);
-            for (var i = 0; i < options.noOfColors; i++) {
-                if (cell.hasClass('color-' + i) === true) {
-                    return 'color-' + i;
-                }
-            };
-
-            throw 'Cell does not have color class specified.';
-        }
-
         var makegrid = function() {
             var grid = $('<table/>');
 
@@ -98,6 +86,17 @@
                 grid.append(tr);
             }
             return grid;
+        }
+
+        var whichcolor = function(cell) {
+            var cell = $('#' + cell);
+            for (var i = 0; i < options.noOfColors; i++) {
+                if (cell.hasClass('color-' + i) === true) {
+                    return 'color-' + i;
+                }
+            };
+
+            throw 'Cell does not have color class specified.';
         }
 
         var switch_colors = function(newcolor) {
