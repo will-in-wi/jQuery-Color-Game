@@ -1,3 +1,7 @@
+// TODO: Add finish screen.
+// Make buttons more obvious.
+// Help text
+
 (function($){
     'use strict';
 
@@ -33,19 +37,19 @@
                     return 'color-' + i;
                 }
             };
-            
+
             throw 'Cell does not have color class specified.';
         }
 
         var makegrid = function(size, colors) {
             var grid = "<table>";
-            
+
             var cell = 0;
-            
+
             var i = 1;
             for (i=1;i<=size;i++) {
                 grid = grid + "<tr>";
-                
+
                 var j = 1;
                 for (j=1;j<=size;j++) {
                     grid = grid + '<td id="cell-' + cell + '" class="color-' + Math.floor(Math.random()*(colors)) + '">';
@@ -60,9 +64,9 @@
         var switch_colors = function(newcolor) {
             var arrChecked = [];
             var arrToCheck = [0];
-            
+
             var oldcolor = whichcolor("cell-0");
-            
+
             var checking;
             while (arrToCheck.length > 0) {
                 checking = arrToCheck.shift();
@@ -70,13 +74,13 @@
                     // switch colors
                     $("#cell-"+checking).removeClass(oldcolor);
                     $("#cell-"+checking).addClass(newcolor);
-                    
+
                     // Add top, bottom, right, left to arrToCheck
                     var cellTop;
                     var cellBottom;
                     var cellRight;
                     var cellLeft;
-                    
+
                     var row = Math.floor(checking / 12);
                     if (row > 0) { // we have a top cell
                         cellTop = checking - 12;
@@ -116,7 +120,7 @@
             $("#start").hide();
             $("#game").show();
         });
-        
+
         $("#pick-0").click(function(){
             switch_colors("color-0");
         });
