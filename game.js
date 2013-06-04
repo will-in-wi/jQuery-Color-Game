@@ -1,7 +1,3 @@
-// TODO: Add finish screen.
-// Make buttons more obvious.
-// Help text
-
 (function($){
     'use strict';
 
