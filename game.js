@@ -38,7 +38,7 @@
         // Counter, grid, color select.
         var counter = $('<div />')
             .attr('id', 'counter')
-            .html('0 of 22 moves'); // Compute this from size.
+            .html('0 of 22 moves'); // TODO: Compute this from size.
 
         var grid = $('<div />')
             .attr('id', 'grid');
