@@ -34,11 +34,15 @@
         options = $.extend({}, defaults, options);
 
 
+        // Compute total possible moves.
+        var totalMoves = 22; // TODO: Actually compute this from size and number of colors.
+
+
         // Initialize gameboard.
         // Counter, grid, color select.
         var counter = $('<div />')
             .attr('id', 'counter')
-            .html('0 of 22 moves'); // TODO: Compute this from size.
+            .html('0 of ' + totalMoves + ' moves');
         this.append(counter);
 
         var grid = $('<div />')
@@ -148,7 +152,7 @@
                 arrChecked.push(checking);
             }
             currentStep++;
-            $("#counter").html(currentStep + " of 22 moves");
+            $("#counter").html(currentStep + ' of ' + totalMoves + ' moves');
         }
 
         var currentStep = 0;
