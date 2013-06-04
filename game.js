@@ -34,7 +34,7 @@
         // Initialize gameboard.
         // Counter, grid, color select.
         var counter = $('<div />')
-            .attr('id', 'counter')
+            .addClass('counter')
             .html('0 of ' + totalMoves + ' moves');
         this.append(counter);
 
@@ -149,7 +149,7 @@
                 arrChecked.push(checking);
             }
             currentStep++;
-            $("#counter").html(currentStep + ' of ' + totalMoves + ' moves');
+            $(".counter").html(currentStep + ' of ' + totalMoves + ' moves');
         }
 
         $('.color-select td').click(function(){
