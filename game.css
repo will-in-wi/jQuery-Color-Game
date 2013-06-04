@@ -16,7 +16,7 @@
   border: none;
   width: 25px;
 }
-#game #color-select {
+#game .color-select {
   height: 30px;
   width: 100%;
   margin-top: 10px;

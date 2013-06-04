@@ -68,7 +68,7 @@
 
         var makeControls = function() {
             var colorSelect = $('<table />')
-                .attr('id', 'color-select');
+                .addClass('color-select');
 
             var tr = $('<tr />');
 
@@ -97,6 +97,8 @@
 
             throw 'Cell does not have color class specified.';
         }
+
+        var currentStep = 0;
 
         var switch_colors = function(newcolor) {
             var arrChecked = [];
@@ -150,9 +152,7 @@
             $("#counter").html(currentStep + ' of ' + totalMoves + ' moves');
         }
 
-        var currentStep = 0;
-
-        $('#color-select td').click(function(){
+        $('.color-select td').click(function(){
             switch_colors('color-' + $(this).attr('data-color'));
         });
     };
