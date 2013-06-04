@@ -1,6 +1,10 @@
 #game {
   width: 300px;
 }
+#game #counter {
+  width: 100%;
+  text-align: right;
+}
 #game #grid {
   height: 300px;
   width: 100%;
@@ -10,7 +14,7 @@
   width: 100%;
   border-collapse: collapse;
 }
-#game td {
+#game table td {
   padding: 0px;
   margin: 0px;
   border: none;
@@ -20,10 +24,6 @@
   height: 30px;
   width: 100%;
   margin-top: 10px;
-}
-#game #counter {
-  width: 100%;
-  text-align: right;
 }
 #game .color-0 {
   background-color: #edd400;
