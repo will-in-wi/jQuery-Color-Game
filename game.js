@@ -42,19 +42,17 @@
             throw 'Cell does not have color class specified.';
         }
 
-        var makegrid = function(size, colors) {
+        var makegrid = function(size) {
             var grid = $('<table/>');
 
             var cell = 0;
 
             var i = 1;
             for (i=1;i<=size;i++) {
-                // grid = grid + "<tr>";
                 var tr = $('<tr />');
 
                 var j = 1;
                 for (j=1;j<=size;j++) {
-                    // grid = grid + '<td id="cell-' + cell + '" class="color-' + Math.floor(Math.random()*(colors)) + '">';
                     var color = Math.floor(Math.random()*(options.noOfColors));
                     var td = $('<td />')
                         .attr('id', 'cell-' + cell)
@@ -62,7 +60,6 @@
                     tr.append(td);
                     cell++;
                 }
-                // grid = grid + "</tr>";
                 grid.append(tr);
             }
             return grid;
@@ -77,10 +74,10 @@
             var checking;
             while (arrToCheck.length > 0) {
                 checking = arrToCheck.shift();
-                if ($("#cell-"+checking).hasClass(oldcolor)) {
+                if ($("#cell-" + checking).hasClass(oldcolor)) {
                     // switch colors
-                    $("#cell-"+checking).removeClass(oldcolor);
-                    $("#cell-"+checking).addClass(newcolor);
+                    $("#cell-" + checking).removeClass(oldcolor);
+                    $("#cell-" + checking).addClass(newcolor);
 
                     // Add top, bottom, right, left to arrToCheck
                     var cellTop;
@@ -123,7 +120,7 @@
         var currentStep = 0;
 
         $("#easy").click(function(){
-            $("#grid").html(makegrid(options.size, options.noOfColors));
+            $("#grid").html(makegrid(options.size));
             $("#start").hide();
             $("#game").show();
         });
