@@ -31,6 +31,9 @@
         var totalMoves = 22; // TODO: Actually compute this from size and number of colors.
 
 
+        this.addClass('active-color-game');
+
+
         // Initialize gameboard.
         // Counter, grid, color select.
         var counter = $('<div />')

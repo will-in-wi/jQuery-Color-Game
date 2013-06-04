@@ -1,45 +1,45 @@
-#game {
+.active-color-game {
   width: 300px;
 }
-#game .counter {
+.active-color-game .counter {
   width: 100%;
   text-align: right;
 }
-#game .grid {
+.active-color-game .grid {
   height: 300px;
   width: 100%;
 }
-#game table {
+.active-color-game table {
   height: 100%;
   width: 100%;
   border-collapse: collapse;
 }
-#game table td {
+.active-color-game table td {
   padding: 0px;
   margin: 0px;
   border: none;
   width: 25px;
 }
-#game .color-select {
+.active-color-game .color-select {
   height: 30px;
   width: 100%;
   margin-top: 10px;
 }
-#game [data-color='0'] {
+.active-color-game [data-color='0'] {
   background-color: #edd400;
 }
-#game [data-color='1'] {
+.active-color-game [data-color='1'] {
   background-color: #73d216;
 }
-#game [data-color='2'] {
+.active-color-game [data-color='2'] {
   background-color: #3465a4;
 }
-#game [data-color='3'] {
+.active-color-game [data-color='3'] {
   background-color: #cc0000;
 }
-#game [data-color='4'] {
+.active-color-game [data-color='4'] {
   background-color: #5c3566;
 }
-#game [data-color='5'] {
+.active-color-game [data-color='5'] {
   background-color: #e9b96e;
 }
