@@ -108,26 +108,26 @@
                     var cellRight;
                     var cellLeft;
 
-                    var row = Math.floor(checking / 12);
+                    var row = Math.floor(checking / options.size);
                     if (row > 0) { // we have a top cell
-                        cellTop = checking - 12;
+                        cellTop = checking - options.size;
                         if (arrChecked.find(cellTop) == false && arrToCheck.find(cellTop) == false) {
                             arrToCheck.push(cellTop);
                         }
                     }
-                    if (row < 11) { // we have a bottom cell
-                        cellBottom = checking + 12;
+                    if (row < options.size - 1) { // we have a bottom cell
+                        cellBottom = checking + options.size;
                         if (arrChecked.find(cellBottom) == false && arrToCheck.find(cellBottom) == false) {
                             arrToCheck.push(cellBottom);
                         }
                     }
-                    if (checking % 12 != 0) { // we have a left cell
+                    if (checking % options.size != 0) { // we have a left cell
                         cellLeft = checking - 1;
                         if (arrChecked.find(cellLeft) == false && arrToCheck.find(cellLeft) == false) {
                             arrToCheck.push(cellLeft);
                         }
                     }
-                    if (checking % 12 != 11) { // we have a right cell
+                    if (checking % options.size != options.size - 1) { // we have a right cell
                         cellRight = checking + 1;
                         if (arrChecked.find(cellRight) == false && arrToCheck.find(cellRight) == false) {
                             arrToCheck.push(cellRight);
