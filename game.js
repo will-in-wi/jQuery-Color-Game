@@ -151,7 +151,7 @@
         }
 
         $('.color-select td').click(function(){
-            switch_colors($(game).attr('data-color'));
+            switch_colors($(this).attr('data-color'));
         });
     };
 }(jQuery));
