@@ -1,54 +1,40 @@
-Array.prototype.find = function(searchStr) {
-    var returnArray = false;
-    for (i=0; i<this.length; i++) {
-        if (typeof(searchStr) == 'function') {
-            if (searchStr.test(this[i])) {
-                if (!returnArray) { returnArray = [] }
-                returnArray.push(i);
-            }
-        } else {
-            if (this[i]===searchStr) {
-                if (!returnArray) { returnArray = [] }
-                returnArray.push(i);
+(function($){
+    'use strict';
+
+    Array.prototype.find = function(searchStr) {
+        var returnArray = false;
+        for (var i=0; i<this.length; i++) {
+            if (typeof(searchStr) == 'function') {
+                if (searchStr.test(this[i])) {
+                    if (!returnArray) { returnArray = [] }
+                    returnArray.push(i);
+                }
+            } else {
+                if (this[i]===searchStr) {
+                    if (!returnArray) { returnArray = [] }
+                    returnArray.push(i);
+                }
             }
         }
+        return returnArray;
     }
-    return returnArray;
-}
 
-(function($){
-    $.fn.colorGame = function() {
-        var colors = [
-            'yellow',
-            'green',
-            'blue',
-            'red',
-            'purple',
-            'tan'
-        ];
+
+    $.fn.colorGame = function(options) {
+        var defaults = {
+            noOfColors : 6,
+        }
+        options = $.extend({}, defaults, options);
 
         var whichcolor = function(cell) {
-            if ($("#"+cell).hasClass("color-0") == true) {
-                return "color-0";
-            }
-            else if ($("#"+cell).hasClass("color-1") == true) {
-                return "color-1";
-            }
-            else if ($("#"+cell).hasClass("color-2") == true) {
-                return "color-2";
-            }
-            else if ($("#"+cell).hasClass("color-3") == true) {
-                return "color-3";
-            }
-            else if ($("#"+cell).hasClass("color-4") == true) {
-                return "color-4";
-            }
-            else if ($("#"+cell).hasClass("color-5") == true) {
-                return "color-5";
-            }
-            else {
-                throw "Cell does not have color class specified.";
-            }
+            var cell = $('#' + cell);
+            for (var i = 0; i < options.noOfColors; i++) {
+                if (cell.hasClass('color-' + i) === true) {
+                    return 'color-' + i;
+                }
+            };
+            
+            throw 'Cell does not have color class specified.';
         }
 
         var makegrid = function(size, colors) {
